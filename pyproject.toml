@@ -1,5 +1,5 @@
 [project]
-name = "metal2fo"
+name = "metal2f0"
 version = "0.1.0"
 description = "Converts BaseColor + Metallic textures to Diffuse Albedo + F0 / Specular textures"
 readme = "README.md"
@@ -8,12 +8,13 @@ authors = [
 ]
 requires-python = ">=3.14,<3.15"
 dependencies = [
+    "numpy",
     "openimageio",
     "pyside6",
 ]
 
 [project.scripts]
-metal2fo = "metal2fo.app:main"
+metal2fo = "metal2f0.app:main"
 
 [build-system]
 requires = ["uv_build>=0.12.3,<0.13.0"]
