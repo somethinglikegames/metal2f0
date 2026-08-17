@@ -128,28 +128,6 @@ The resulting executable is placed in:
 dist/
 ```
 
-## Project Structure
-
-```text
-metal2f0/
-├── src/
-│   └── metal2f0/
-│       ├── processing/
-│       │   ├── processor.py
-│       │   └── batch.py
-│       ├── ui/
-│       ├── resources/
-│       └── app.py
-├── tests/
-├── packaging/
-│   └── metal2f0.spec
-├── .github/
-│   └── workflows/
-│       └── build.yml
-├── pyproject.toml
-└── uv.lock
-```
-
 ## License
 
 metal2f0 is licensed under the MIT License. See [LICENSE](LICENSE) for the full license text.
