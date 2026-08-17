@@ -1,9 +1,18 @@
+import sys
+
 from PySide6.QtWidgets import QApplication
 
+from metal2f0.resources import resources_rc
+from metal2f0.ui.main_window import MainWindow
 
 def main() -> None:
-    app = QApplication([])
+    app = QApplication(sys.argv)
 
-    # MainWindow kommt später hierhin.
+    window = MainWindow()
+    window.show()
 
-    app.exec()
+    sys.exit(app.exec())
+
+
+if __name__ == "__main__":
+    main()

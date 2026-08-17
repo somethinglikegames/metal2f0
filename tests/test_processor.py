@@ -501,7 +501,10 @@ def test_diffuse_rejects_mismatched_dimensions():
         dtype=np.float32,
     )
 
-    with pytest.raises(ValueError):
+    with pytest.raises(
+        ValueError,
+        match="identical dimensions",
+    ):
         calculate_diffuse(
             base_color,
             metal,
@@ -519,9 +522,61 @@ def test_f0_rejects_mismatched_dimensions():
         dtype=np.float32,
     )
 
-    with pytest.raises(ValueError):
-        calculate_f0(
+    with pytest.raises(
+        ValueError,
+        match="identical dimensions",
+    ):
+        calculate_diffuse(
             base_color,
             metal,
-            0.04,
+        )
+
+
+def test_extract_metal_channel_clamps_values():
+    metal = np.array(
+        [
+            [
+                [-1.0],
+                [2.0],
+            ],
+        ],
+        dtype=np.float32,
+    )
+
+    result = extract_metal_channel(
+        metal,
+        0,
+    )
+
+    expected = np.array(
+        [
+            [0.0, 1.0],
+        ],
+        dtype=np.float32,
+    )
+
+    np.testing.assert_allclose(
+        result,
+        expected,
+    )
+
+
+def test_diffuse_rejects_invalid_base_color_channels():
+    base_color = np.zeros(
+        (2, 2, 2),
+        dtype=np.float32,
+    )
+
+    metal = np.zeros(
+        (2, 2),
+        dtype=np.float32,
+    )
+
+    with pytest.raises(
+        ValueError,
+        match="BaseColor must have 3 or 4 channels",
+    ):
+        calculate_diffuse(
+            base_color,
+            metal,
         )
