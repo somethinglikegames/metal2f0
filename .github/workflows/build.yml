@@ -33,7 +33,7 @@ jobs:
         run: uv run pytest
 
       - name: Build application
-        run: uv run pyinstaller packaging/metal2fo.spec
+        run: uv run pyinstaller packaging/metal2f0.spec
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
