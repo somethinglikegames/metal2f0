@@ -1,6 +1,6 @@
 [project]
 name = "metal2f0"
-version = "0.1.0"
+version = "1.0.0"
 description = "Converts BaseColor + Metallic textures to Diffuse Albedo + F0 / Specular textures"
 readme = "README.md"
 license = { file = "LICENSE" }
